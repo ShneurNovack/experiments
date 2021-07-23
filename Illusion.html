@@ -12,14 +12,19 @@ div#box {
     -webkit-transition-duration: 1s;
     -moz-transition-duration: 1s;
     margin-top: 40px;
+    animation-name: ilu;
 }
   body {
     background: linear-gradient(
 180deg
 , rgba(25,25,25,1) 0%, rgba(196,196,196,1) 100%);
 }
-  div#box:hover {
-    margin-top: 600px!important;
-    transition-duration: 3s!important;
+    @keyframes ilu {
+  from {
+    margin-top: 40px;
+}
+  to {
+    margin-top: 200px;
+}
 }
   </style>
