@@ -14,32 +14,6 @@
 }
 </style>
 <script>
-  $(document).keydown(function(e) {
-    switch (e.which) {
-    case 37:
-        $('div').stop().animate({
-            left: '-=30'
-        }); //left arrow key
-        break;
-    case 38:
-        $('div').stop().animate({
-            top: '-=30'
-        }); //up arrow key
-        break;
-    case 39:
-        $('div').stop().animate({
-            left: '+=30'
-        }); //right arrow key
-        break;
-    case 40:
-        $('div').stop().animate({
-            top: '+=30'
-        }); //bottom arrow key
-        break;
-    }
-})
-</script>
-<script>
   var pressed = false;
 $(document).keydown(function(e) {
     if(!pressed){ //only start animation once
