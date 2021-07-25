@@ -32,12 +32,12 @@ $(document).keydown(function(e) {
                 break;
              case 39:
                 $('div').stop().animate({
-                    right: '+=' + width //allow the user the move the div over the whole doc
+                    left: '+=' + width //allow the user the move the div over the whole doc
                 }, 2000); //right arrow key
                 break;
              case 40:
                 $('div').stop().animate({
-                    bottom: '+=' + width //allow the user the move the div over the whole doc
+                    top: '+=' + width //allow the user the move the div over the whole doc
                 }, 2000); //bottom arrow key
                 break;
        }
