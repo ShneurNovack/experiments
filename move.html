@@ -23,7 +23,7 @@
 </style>
 <div></div>
 <style>
-  div{
+  #box {
     background:#ccc;
     height:100px;
     width:100px;
@@ -40,22 +40,22 @@ $(document).keydown(function(e) {
         height = $(this).height();
         switch (e.which) {
             case 37:
-                $('div').stop().animate({
+                $('box').stop().animate({
                     left: '-=' + width
                 }, 1000); //left arrow key
                 break;
             case 38:
-                $('div').stop().animate({
+                $('box').stop().animate({
                     top: '-=' + width
                 }, 1000); //up arrow key
                 break;
              case 39:
-                $('div').stop().animate({
+                $('box').stop().animate({
                     left: '+=' + width
                 }, 1000); //right arrow key
                 break;
              case 40:
-                $('div').stop().animate({
+                $('box').stop().animate({
                     top: '+=' + width
                 }, 1000); //bottom arrow key
                 break;
@@ -63,7 +63,7 @@ $(document).keydown(function(e) {
     }
     pressed = true;
 }).keyup(function(){
-    $('div').stop();
+    $('box').stop();
     pressed = false;
 });
   </script>
