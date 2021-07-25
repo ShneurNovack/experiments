@@ -40,22 +40,22 @@ $(document).keydown(function(e) {
         height = $(this).height();
         switch (e.which) {
             case 37:
-                $('box').stop().animate({
+                $('3box').stop().animate({
                     left: '-=' + width
                 }, 1000); //left arrow key
                 break;
             case 38:
-                $('box').stop().animate({
+                $('#box').stop().animate({
                     top: '-=' + width
                 }, 1000); //up arrow key
                 break;
              case 39:
-                $('box').stop().animate({
+                $('#box').stop().animate({
                     left: '+=' + width
                 }, 1000); //right arrow key
                 break;
              case 40:
-                $('box').stop().animate({
+                $('#box').stop().animate({
                     top: '+=' + width
                 }, 1000); //bottom arrow key
                 break;
@@ -63,7 +63,7 @@ $(document).keydown(function(e) {
     }
     pressed = true;
 }).keyup(function(){
-    $('box').stop();
+    $('#box').stop();
     pressed = false;
 });
   </script>
