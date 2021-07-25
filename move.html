@@ -39,24 +39,3 @@
     }
 })
 </script>
-<script>
-  var pressed = false;
-$(document).keydown(function(e) {
-    if(!pressed){ //only start animation once
-        width = $(this).width();
-        height = $(this).height();
-        switch (e.which) {
-            case 37:
-                $('div').stop().animate({
-                    left: '-=' + width //allow the user the move the div over the whole doc
-                }, 2000); //left arrow key
-                break;
-        // and so on
-       }
-    }
-    pressed = true;
-}).keyup(function(){
-    $('div').stop(); // stop the current animation
-    pressed = false;
-});
-</script>
