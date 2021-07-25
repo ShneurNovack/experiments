@@ -14,17 +14,22 @@ div#box {
     margin-top: 40px;
     animation-name: ilu;
 }
+div#box {
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
   body {
     background: linear-gradient(
 180deg
 , rgba(25,25,25,1) 0%, rgba(196,196,196,1) 100%);
 }
     @keyframes ilu {
-  from {
-    margin-top: 40px;
+0% {
+    margin-top: 100px;
 }
-  to {
-    margin-top: 200px;
+100% {
+    margin-top: 600px;
 }
 }
   </style>
