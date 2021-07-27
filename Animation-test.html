@@ -1,27 +1,93 @@
-<div id="animation"></div>
+<div id="box1" class="box">
+</div>
+<div id="box2" class="box">
+</div>
+<div id="box3" class="box">
+</div>
+<div id="box4" class="box">
+</div>
+<div id="box5" class="box">
+</div>
+<div id="box6" class="box">
+</div>
+<div id="box7" class="box">
+</div>
+<div id="box8" class="box">
+</div>
 
 <style>
-#animation {
-background: linear-gradient(154deg, #47daff 0%,#ff00ea 100%,#9100ff 100%);
-background: -moz-linear-gradient(154deg, #47daff 0%,#ff00ea 100%,#9100ff 100%);
-border-radius: 10px 10px 10px 10px;
-box-shadow: 7px 8px 12px #e8e8e8;
-animation-name: back;
+    .box {
+      border: 1px solid transparent;
+    min-height: 100px;
+    position: absolute;
+    width: 0px;
+    background: #123456;
+    animation-iteration-count: infinite;
+    animation-duration: 5s;
 }
-div#animation {
-    min-width: 100%;
-    min-height: 100%;
+#box1 {
+  animation-name: animation1;
+  right: 0px;
 }
-  @keyframes back {
-  from {
-      background: linear-gradient(
-154deg
-, #47daff 0%,#ff00ea 100%,#9100ff 100%);
+#box2 {
+    margin-top: 100px;
+    animation-name: animation2;
+    left: 0px;
 }
-  to {
-  background: linear-gradient(
-154deg
-, #ff00ea 0%,#47daff 100%,#9100ff 100%);
+#box3 {
+  animation-name: animation1;
+  right: 0px;
+  margin-top: 200px;
+}
+#box4 {
+    margin-top: 300px;
+    animation-name: animation2;
+    left: 0px;
+}
+#box5 {
+  animation-name: animation1;
+  right: 0px;
+  margin-top: 400px;
+}
+#box6 {
+    margin-top: 500px;
+    animation-name: animation2;
+    left: 0px;
+}
+#box7 {
+  animation-name: animation1;
+  right: 0px;
+  margin-top: 600px;
+}
+#box8 {
+    margin-top: 700px;
+    animation-name: animation2;
+    left: 0px;
+}
+
+@keyframes animation1 {
+  0%   {
+    right: 0px;
+}
+  50%  {
+    right: 0px;
+    width: 100%;
+}
+    100%   {
+    right: 0px;
+}
+}
+
+@keyframes animation2 {
+  0%   {
+    right: 0px;
+}
+  50%  {
+    left: 0px;
+    width: 100%;
+}
+    100%   {
+    right: 0px;
 }
 }
 </style>
