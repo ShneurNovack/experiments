@@ -14,16 +14,61 @@
 </div>
 <div id="box8" class="box">
 </div>
+<div id="box9" class="box2">
+</div>
+<div id="box10" class="box3">
+</div>
 
 <style>
-    .box {
-      border: 1px solid transparent;
-    min-height: 100px;
+  .box {
+    border: 1px solid transparent;
+    height: 100px;
     position: absolute;
     width: 0px;
     background: #123456;
     animation-iteration-count: infinite;
     animation-duration: 5s;
+}
+.box2 {
+      border: 0px solid transparent;
+    min-height: 0px;
+    position: absolute;
+    background: #fff;
+    animation-iteration-count: 
+      infinite;
+    animation-name: animation3;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+      animation-iteration-count: infinite;
+    animation-duration: 5s;
+}
+.box3 {
+      border: 0px solid transparent;
+    min-height: 0px;
+    position: absolute;
+    width: 50px;
+    background: #123456;
+    animation-iteration-count: 
+      infinite;
+    animation-name: animation4;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+      animation-iteration-count: infinite;
+    animation-duration: 5s;
+      z-index: 200;
+}
+#box1 {
+  animation-name: animation1;
+  right: 0px;
+}
+#box2 {
+    margin-top: 100px;
+    animation-name: animation2;
+    left: 0px;
 }
 #box1 {
   animation-name: animation1;
@@ -73,6 +118,10 @@
     right: 0px;
     width: 100%;
 }
+    70%  {
+    right: 0px;
+    width: 100%;
+}
     100%   {
     right: 0px;
 }
@@ -86,8 +135,56 @@
     left: 0px;
     width: 100%;
 }
+    70%  {
+    left: 0px;
+    width: 100%;
+}
     100%   {
     right: 0px;
+}
+}
+
+@keyframes animation3 {
+  0%   {
+    height: 0px;
+}
+  40%  {
+   height: 0px;
+  }
+    55%   {
+    height: 100%;
+        top: 0px;
+      width: 100px;
+}
+    72%   {
+    height: 100%;
+        width: 0px;
+}
+      73%   {
+        display: none;
+}
+}
+
+@keyframes animation4 {
+  0%   {
+    height: 0px;
+}
+  45%  {
+   height: 0px;
+  }
+    55%   {
+    height: 100%;
+        top: 0px;
+}
+        56%   {
+    height: 100%;
+        bottom: 0px;
+        top: unset;
+}
+      62%   {
+    height: 0px;
+        bottom: 0px;
+        top: unset;
 }
 }
 </style>
