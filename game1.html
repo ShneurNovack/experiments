@@ -28,10 +28,10 @@
   <button type="button" onClick="refreshPage()">Play Again</button>
 </div>
 <div id="dark"></div>
-<div id="border" class="borderTop"></div>
+<div id="borderTop" class="borderTop"></div>
 <div id="border" class="borderBottom"></div>
-<div id="border" class="borderLeft"></div>
-<div id="border" class="borderRight"></div>
+<div id="borderLeft" class="borderLeft"></div>
+<div id="borderRight" class="borderRight"></div>
 
 <script>
   function refreshPage() {
@@ -422,6 +422,99 @@ $(document).keydown(function(e) {
       if (collision($('#ob5'),$('#box'))){
           var state =document.getElementById('state');
             if (collision($('#ob5'),$('#box'))) {
+    win.style.display = 'flex';
+    dark.style.display = 'flex';
+    box.style.display = 'none';
+   }
+   else {
+    win.style.display == 'none';
+   } 
+  }
+    });
+  
+    function collision($borderTop, $box) {
+      var x1 = $borderTop.offset().left;
+      var y1 = $borderTop.offset().top;
+      var h1 = $borderTop.outerHeight(true);
+      var w1 = $borderTop.outerWidth(true);
+      var b1 = y1 + h1;
+      var r1 = x1 + w1;
+      var x2 = $box.offset().left;
+      var y2 = $box.offset().top;
+      var h2 = $box.outerHeight(true);
+      var w2 = $box.outerWidth(true);
+      var b2 = y2 + h2;
+      var r2 = x2 + w2;
+      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+      return true;
+  }
+
+  setInterval(() => {
+      if (collision($('#borderTop'),$('#box'))){
+          var state =document.getElementById('state');
+            if (collision($('#borderTop'),$('#box'))) {
+    win.style.display = 'flex';
+    dark.style.display = 'flex';
+    box.style.display = 'none';
+   }
+   else {
+    win.style.display == 'none';
+   } 
+  }
+    });
+  
+      function collision($borderLeft, $box) {
+      var x1 = $borderLeft.offset().left;
+      var y1 = $borderLeft.offset().top;
+      var h1 = $borderLeft.outerHeight(true);
+      var w1 = $borderLeft.outerWidth(true);
+      var b1 = y1 + h1;
+      var r1 = x1 + w1;
+      var x2 = $box.offset().left;
+      var y2 = $box.offset().top;
+      var h2 = $box.outerHeight(true);
+      var w2 = $box.outerWidth(true);
+      var b2 = y2 + h2;
+      var r2 = x2 + w2;
+      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+      return true;
+  }
+
+  setInterval(() => {
+      if (collision($('#borderLeft'),$('#box'))){
+          var state =document.getElementById('state');
+            if (collision($('#borderLeft'),$('#box'))) {
+    win.style.display = 'flex';
+    dark.style.display = 'flex';
+    box.style.display = 'none';
+   }
+   else {
+    win.style.display == 'none';
+   } 
+  }
+    });
+  
+        function collision($borderRight, $box) {
+      var x1 = $borderRight.offset().left;
+      var y1 = $borderRight.offset().top;
+      var h1 = $borderRight.outerHeight(true);
+      var w1 = $borderRight.outerWidth(true);
+      var b1 = y1 + h1;
+      var r1 = x1 + w1;
+      var x2 = $box.offset().left;
+      var y2 = $box.offset().top;
+      var h2 = $box.outerHeight(true);
+      var w2 = $box.outerWidth(true);
+      var b2 = y2 + h2;
+      var r2 = x2 + w2;
+      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+      return true;
+  }
+
+  setInterval(() => {
+      if (collision($('#borderRight'),$('#box'))){
+          var state =document.getElementById('state');
+            if (collision($('#borderRight'),$('#box'))) {
     win.style.display = 'flex';
     dark.style.display = 'flex';
     box.style.display = 'none';
