@@ -453,7 +453,7 @@ $(document).keydown(function(e) {
       if (collision($('#borderTop'),$('#box'))){
           var state =document.getElementById('state');
             if (collision($('#borderTop'),$('#box'))) {
-    win.style.display = 'flex';
+    state.style.display = 'flex';
     dark.style.display = 'flex';
     box.style.display = 'none';
    }
@@ -484,7 +484,7 @@ $(document).keydown(function(e) {
       if (collision($('#borderLeft'),$('#box'))){
           var state =document.getElementById('state');
             if (collision($('#borderLeft'),$('#box'))) {
-    win.style.display = 'flex';
+    state.style.display = 'flex';
     dark.style.display = 'flex';
     box.style.display = 'none';
    }
@@ -515,7 +515,7 @@ $(document).keydown(function(e) {
       if (collision($('#borderRight'),$('#box'))){
           var state =document.getElementById('state');
             if (collision($('#borderRight'),$('#box'))) {
-    win.style.display = 'flex';
+    state.style.display = 'flex';
     dark.style.display = 'flex';
     box.style.display = 'none';
    }
