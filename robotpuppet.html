@@ -1,0 +1,95 @@
+<div id="main">
+<div id="face">
+  <div id="eyeC">
+  <div id="eyes">
+    <div id="pupils"></div>
+    </div>
+    <div id="eyes">
+      <div id="pupils"></div>
+      </div>
+    </div>
+<form action="/action_page.php">
+<textarea id="w3review" name="w3review" rows="4" cols="20">
+  </textarea>
+  <br><br>
+</form>
+</div>
+  
+  <style>
+    div#face {
+    background-size: cover;
+    background-attachment: fixed;
+}
+div#main {
+    display: flex;
+    justify-content: center;
+}
+div#eyes {
+    width: 85px;
+    height: 100px;
+    background: #ffffff;
+    margin: 20px;
+    border: none;
+    display: flex;
+    border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+div#eyeC {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+div#pupils {
+    background: #205f9e;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    border-radius: 10px;
+}
+textarea#w3review {
+   background-size: cover;
+   background-attachment: fixed;
+   background-image: url('https://i.pinimg.com/736x/83/ef/8e/83ef8e65ca0a0f4a28e49270aea95a1b--metallic-wallpaper-satin-finish.jpg');
+    border: none;
+    border-radius: 30px;
+box-shadow: rgb(50 50 93 / 56%) 0px 30px 60px -12px inset, rgb(0 0 0) 0px 18px 36px -18px inset;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+form {
+    display: flex;
+    justify-content: center;
+}
+div#face {
+  margin: 20px;
+    background-image: url('https://polishedmetals.com/wp-content/uploads/2020/09/Stainless-Steel-shutterstock_661808035-700x390.jpg');
+    padding: 30px;
+    max-width: 700px;
+    border: none;
+    border-radius: 30px;
+    min-width: 300px;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+@keyframes eyemove {
+  0%   {
+    justify-content: flex-end;
+  }
+  25%  {
+    align-items: flex-end;
+  }
+  50%  {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  100% {
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+}
+div#eyes {
+    animation-name: eyemove;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+  </style>
