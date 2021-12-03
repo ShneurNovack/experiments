@@ -1,0 +1,16 @@
+<script>
+function UserAction() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+         if (this.readyState == 4 && this.status == 200) {
+             alert(this.responseText);
+         }
+    };
+    xhttp.open("POST", "https://www.boredapi.com/api/activity", true);
+    xhttp.setRequestHeader("activity", "application/json");
+    xhttp.send("#activity");
+}
+</script>
+
+<button type="submit" onclick="UserAction()">Search</button>
+<div id="activity"></div>
