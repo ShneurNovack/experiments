@@ -49,7 +49,7 @@ const getActivity = async (event) => {
 }
 
 form.addEventListener("submit", getActivity);
-    <style>
+    <script>
         
         <body>
         <h1>You should:</h1>
@@ -62,3 +62,47 @@ form.addEventListener("submit", getActivity);
   <button class="button" type="submit">Give me an activity</button>
 </form>
     </body>
+
+    <style>
+      *{
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Gotham';
+}
+.button {
+  background: STEELBLUE;
+  color: white;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  padding: 0.5rem 1rem;
+  display: block;
+}
+
+.button:hover,
+.button:focus {
+  outline: 0;
+}
+
+input {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  display: none;
+}
+
+input + label {
+  padding: 0.5rem 1rem;
+  font-variant-caps: all-small-caps;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 1rem;
+  box-shadow: inset 0 0 0 2px #DCDCDC;
+  border-radius: 4px;
+}
+
+input[type=checkbox]:checked + label {
+  background: #DCDCDC;
+} 
+    </style>
