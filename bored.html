@@ -1,38 +1,64 @@
-<script type="text/javascript" language="javascript">
+<script>
+    const endpoint = `https://www.boredapi.com/api/activity`;
+const button = document.querySelector('.button');
+const form = document.querySelector('#form');
+const activityWrapper = document.querySelector('.activity');
+const typeWrapper = document.querySelector('.type');
 
-function send()
-{
-    var urlvariable;
-
-    urlvariable = "text";
-
-    var ItemJSON;
-
-    ItemJSON = '[  {    "Id": 1,    "ProductID": "1",    "Quantity": 1,  },  {    "Id": 1,    "ProductID": "2",    "Quantity": 2,  }]';
-
-    URL = "https://testrestapi.com/additems?var=" + urlvariable;  //Your URL
-
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = callbackFunction(xmlhttp);
-    xmlhttp.open("POST", URL, false);
-    xmlhttp.setRequestHeader("Content-Type", "application/json");
-    xmlhttp.setRequestHeader('Authorization', 'Basic ' + window.btoa('apiusername:apiuserpassword')); //in prod, you should encrypt user name and password and provide encrypted keys here instead 
-    xmlhttp.onreadystatechange = callbackFunction(xmlhttp);
-    xmlhttp.send(ItemJSON);
-    alert(xmlhttp.responseText);
-    document.getElementById("div").innerHTML = xmlhttp.statusText + ":" + xmlhttp.status + "<BR><textarea rows='100' cols='100'>" + xmlhttp.responseText + "</textarea>";
+const changeColor = (type) => {
+  switch(type){
+    case 'relaxation':
+      return 'MEDIUMSLATEBLUE';
+      break;
+    case 'cooking':
+      return 'KHAKI';
+      break;
+    case 'recreational':
+      return `linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)`;
+      break;
+    case 'social':
+      return '#3b5998';
+      break;
+    case 'music':
+      return 'DARKSEAGREEN';
+      break;
+    case 'busywork':
+      return 'CORNFLOWERBLUE';
+      break;
+    default:
+      return 'blue';
+  }
 }
 
-function callbackFunction(xmlhttp) 
-{
-    //alert(xmlhttp.responseXML);
+
+const getActivity = async (event) => {
+  event.preventDefault();
+  const isFree = event.target.children.namedItem('free').checked;
+  console.log(isFree);
+  let Api = isFree ? `${endpoint}?price=0` : endpoint;
+  
+  const response = await fetch(Api);
+  const json = await response.json();
+  const {activity, type} = json;
+  
+  activityWrapper.innerHTML= activity;
+  
+  const Color = changeColor(type);
+  button.style.background = Color;
+  
 }
-</script>
 
+form.addEventListener("submit", getActivity);
+    <style>
+        
+        <body>
+        <h1>You should:</h1>
+<h3 class="activity"></h3>
+<p class="type small"></p>
 
-<html>
-<body id='bod'><button type="submit" onclick="javascript:send()">call</button>
-<div id='div'>
-
-</div></body>
-</html>
+<form id="form" action="POST">
+  <input type="checkbox" name="free" id="free">
+  <label for="free">I'm Broke</label>
+  <button class="button" type="submit">Give me an activity</button>
+</form>
+    </body>
