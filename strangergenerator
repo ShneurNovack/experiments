@@ -1,0 +1,142 @@
+<div class="st">
+  <i class="decorator full"></i>
+  <span id="word1" class="w full js-w1">
+    <span class="l">S</span>trange<span class="l">r</span>
+  </span>
+  <i class="decorator"></i>
+  <span id="word2" class="w w-2 js-w2">Things</span>
+  <i class="decorator"></i>
+</div>
+  <a class="button" onclick="buttonClick();">Generate Another</a>
+</div>
+
+<style>
+* {
+	 margin: 0;
+	 padding: 0;
+	 position: relative;
+	 box-sizing: border-box;
+}
+ .button {
+	 position: absolute;
+	 bottom: 2em;
+	 text-align: center;
+	 appearance: none;
+	 color: red;
+	 background-color: transparent;
+	 border: 2px solid;
+	 border-color: currentColor;
+	 opacity: 0.75;
+	 padding: 3px;
+	 font-family: &#34;
+	Cochin&#34;
+	;
+}
+ .button {
+	 cursor: pointer;
+}
+ span#word2 {
+	 margin-top: -12px;
+}
+ html {
+	 background-color: #110809;
+	 height: 100%;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+}
+ body {
+	 height: 100%;
+	 display: flex;
+	 align-items: center;
+	 justify-content: center;
+	 flex: 0 1;
+}
+ .st {
+	 text-align: center;
+	 flex: 0 1 auto;
+	 display: flex;
+	 flex-wrap: wrap;
+	 font-family: &#34;
+	Cochin&#34;
+	;
+	 font-size: 5em;
+	 font-weight: 600;
+	 line-height: 1;
+	 text-transform: uppercase;
+	 color: transparent;
+	 -webkit-text-stroke: 2px red;
+	 filter: drop-shadow(0 0 15px rgba(255, 0, 0, 1));
+}
+ .l {
+	 font-size: 1.4em;
+	 vertical-align: -0.175em;
+	 margin-top: -0.2em;
+}
+ .full {
+	 flex: 1 0 100%;
+}
+ .w {
+	 white-space: nowrap;
+}
+ .w-2 {
+	 margin: 0 0.1em;
+	 margin-top: -0.4em;
+}
+ .decorator {
+	 height: 0.1em;
+	 border: 2px solid red;
+	 flex: 1 0 auto;
+}
+ .input {
+	 position: absolute;
+	 bottom: 2em;
+	 text-align: center;
+	 font: inherit;
+	 appearance: none;
+	 color: red;
+	 background-color: transparent;
+	 border: 2px dotted transparent;
+	 border-bottom-color: currentColor;
+	 opacity: 0.75;
+}
+ .input:focus {
+	 opacity: 1;
+	 outline: none;
+}
+</style>
+
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script>
+var number;
+var count = 0;
+function makerdm() {
+  return number = Math.floor((Math.random() * 10));
+}
+function buttonClick(){
+count = 10;
+setInterval("rewrite()", 0);  
+}
+function rewrite() {
+  if (count < 15){
+  document.getElementById("word1").innerHTML = "";
+  document.getElementById("word1").append(wordone[makerdm()]); 
+  document.getElementById("word2").innerHTML = "";
+  document.getElementById("word2").append(wordtwo[makerdm()]); 
+  }
+  else if (count > 15 && count < 20){
+  document.getElementById("word2").innerHTML = "";
+  document.getElementById("word2").append(wordtwo[makerdm()]); 
+  }
+  else{
+    return false;
+  }
+  count++;
+}
+
+var wordone = ['Stranger', 'Weirdest', 'Not Normal', 'Unexpected', 'Mysterious', 'uncommon', 'inexplicable', 'unconventional', 'unfamiliar', 'kind of weird'];
+var wordtwo = ['Things', 'Stuff', 'Objects', 'activities', 'incidents', 'concepts', 'events', 'concepts', 'Objects', 'Things'];
+
+rewrite();
+</script>
