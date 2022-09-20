@@ -1,0 +1,21 @@
+  <label for="fname">First name:</label><br>
+  <input type="text" id="field" name="fname">
+
+<script>
+  function setFieldValue(field, value) {
+  if (field && value) {
+    field.value = value;
+  }
+}
+
+function getUrlParameter(name) {
+  name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+  var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+  var results = regex.exec(location.search);
+  return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+}
+
+var field = document.querySelector('#field');
+var value = getUrlParameter('value');
+setFieldValue(field, value);
+  </script>
