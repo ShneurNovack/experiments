@@ -101,53 +101,123 @@ h2 {
 </style>
 
 <script>
-const queryString = window.location.search;
+const queryString = window.location
+    .search;
 
-const urlParams = new URLSearchParams(queryString);
+const urlParams = new URLSearchParams(
+    queryString);
 
-var key2 = urlParams.get('key')
+var key2 = "3BlbkFJjGyPplVIR1vICgkAFDiA"
 
 
-document.getElementById("Submit").onclick = function() {
-document.getElementById('output').innerHTML = "Loading...";
-var sub1 = document.getElementById("subject1").value;
-var sub2 = document.getElementById("subject2").value;
-var mdl = "text-davinci-002";
-var key1 = "KhIHJ6j8gA7E9XbNYse9T"
-var url = "https://api.openai.com/v1/completions";
-var xhr = new XMLHttpRequest();
-  xhr.open("POST", url, true);
-  xhr.setRequestHeader("Authorization", "Bearer sk-" + key1 + key2);
-  xhr.setRequestHeader('Content-Type', 'application/json');
+document.getElementById("Submit")
+    .onclick = function() {
+        var sub1 = document
+            .getElementById("subject1")
+            .value;
+        var sub2 = document
+            .getElementById("subject2")
+            .value;
+        if (sub1 && sub2 !== "") {
+            document.getElementById(
+                    'output')
+                .innerHTML =
+                "Loading...";
+            var mdl =
+            "text-davinci-002";
+            var key1 =
+                "KhIHJ6j8gA7E9XbNYse9T"
+            var url =
+                "https://api.openai.com/v1/completions";
+            var xhr =
+                new XMLHttpRequest();
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader(
+                "Authorization",
+                "Bearer sk-" +
+                key1 + key2);
+            xhr.setRequestHeader(
+                'Content-Type',
+                'application/json');
 
-  xhr.onreadystatechange = function() {
-   if (xhr.readyState === 4) {
-      console.log(xhr.status);
-      console.log(xhr.responseText);
-   }
-var data = JSON.parse(this.response);
-var output = data.choices[0].text;
-document.getElementById('output').innerHTML = output;
-  };
+            xhr.onreadystatechange =
+                function() {
+                    if (xhr
+                        .readyState ===
+                        4) {
+                        console.log(xhr
+                            .status);
+                        console.log(xhr
+                            .responseText
+                            );
+                    }
+                    var data = JSON
+                        .parse(this
+                            .response);
+                    var output = data
+                        .choices[0]
+                        .text;
 
-var data = {
-  "model": mdl,
-  "prompt": "1 idea that mixes " + sub1 + " and " + sub2 + "  is",
-  "max_tokens": 1000,
-  "temperature": 0.5,
-  "top_p": 1,
-  "n": 1,
-  "stream": false,
-  "logprobs": null,
-  "stop": "\n"
-};
+                    document
+                        .getElementById(
+                            'output')
+                        .innerHTML =
+                        output;
+                    checkOutput()
 
-xhr.send(JSON.stringify(data));
-noKey()
-}
-function noKey() {
- if (key2 == "") {
-document.getElementById('output').innerHTML = "Error: No key";
-  }
-  }
+                    function checkOutput() {
+                        if (typeof output ==
+                            'undefined' ||
+                            output == ""
+                            ) {
+                            document
+                                .getElementById(
+                                    'output'
+                                    )
+                                .innerHTML =
+                                "Error: No output";
+                        }
+                    }
+                    checkOutput()
+                };
+
+            var data = {
+                "model": mdl,
+                "prompt": "1 idea that mixes " +
+                    sub1 + " and " +
+                    sub2 + "  is",
+                "max_tokens": 1000,
+                "temperature": 0.5,
+                "top_p": 1,
+                "n": 1,
+                "stream": false,
+                "logprobs": null,
+                "stop": "\n"
+            };
+
+            xhr.send(JSON.stringify(
+                data));
+        }
+        mInput()
+
+        function mInput() {
+            if (sub1 == "" || sub2 ==
+                "") {
+                document.getElementById(
+                        'output')
+                    .innerHTML =
+                    "Error: Missing input";
+            }
+        }
+        checkKey()
+
+        function checkKey() {
+            if (key2 == "") {
+                document.getElementById(
+                        'output')
+                    .innerHTML =
+                    "Error: Missing key";
+            }
+        }
+    }
 </script>
