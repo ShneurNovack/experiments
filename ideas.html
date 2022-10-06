@@ -124,6 +124,7 @@ var xhr = new XMLHttpRequest();
    if (xhr.readyState === 4) {
       console.log(xhr.status);
       console.log(xhr.responseText);
+      document.getElementById('output').innerHTML = "Error no key';
    }
 var data = JSON.parse(this.response);
 var output = data.choices[0].text;
