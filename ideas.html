@@ -143,5 +143,11 @@ var data = {
 };
 
 xhr.send(JSON.stringify(data));
+noKey()
 }
+function noKey() {
+ if (key2 == "") {
+document.getElementById('output').innerHTML = "Error: No key";
+  }
+  }
 </script>
