@@ -1,0 +1,77 @@
+<!--JavaScript adpted from code by Eric Howe and empiric-->
+<head>
+<script type="text/javascript">
+<!--
+if (screen.width <= 699) {
+document.location = "mobileno.html";
+}
+//-->
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<div id="textb">
+<p id="text">Control the box with the arrow keys</p>
+</div>
+<style type="text/css">p#text {
+    background: #ebebeb;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    margin: auto!important;
+    max-width: 306px;
+    font-size: 16px;
+    font-family: system-ui;
+    font-weight: 500;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+}
+}
+</style>
+<div id="box"></div>
+<style>
+  #box {
+    background:#ccc;
+    height:100px;
+    width:100px;
+    position: absolute;
+    top: 200;
+    left: 450px;
+}
+</style>
+<script>
+  var pressed = false;
+$(document).keydown(function(e) {
+    if(!pressed){ 
+        width = $(this).width();
+        height = $(this).height();
+        switch (e.which) {
+            case 37:
+                $('#box').stop().animate({
+                    left: '-=' + width
+                }, 1000); //left arrow key
+                break;
+            case 38:
+                $('#box').stop().animate({
+                    top: '-=' + width
+                }, 1000); //up arrow key
+                break;
+             case 39:
+                $('#box').stop().animate({
+                    left: '+=' + width
+                }, 1000); //right arrow key
+                break;
+             case 40:
+                $('#box').stop().animate({
+                    top: '+=' + width
+                }, 1000); //bottom arrow key
+                break;
+       }
+    }
+    pressed = true;
+}).keyup(function(){
+    $('#box').stop();
+    pressed = false;
+});
+  </script>

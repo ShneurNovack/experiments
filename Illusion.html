@@ -1,0 +1,53 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div id="textb">
+<p id="text">The box is not changing colors</p>
+</div>
+<style type="text/css">p#text {
+    background: #ebebeb;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    margin: auto!important;
+    max-width: 306px;
+    font-size: 20px;
+    font-family: system-ui;
+    font-weight: 500;
+    position: absolute;
+    top: 8px;
+}
+}
+</style>
+<div id="box"><div>
+<style>
+div#box {
+    max-width: 150px;
+    min-height: 150px;
+    background-color: #808182;
+    margin: auto;
+    /* transition-duration: 3s; */
+    position: relative;
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    margin-top: 40px;
+    animation-name: ilu;
+}
+div#box {
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+  body {
+    background: linear-gradient(
+180deg
+, rgba(25,25,25,1) 0%, rgba(196,196,196,1) 100%);
+}
+    @keyframes ilu {
+0% {
+    margin-top: 100px;
+}
+100% {
+    margin-top: 600px;
+}
+}
+  </style>
