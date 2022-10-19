@@ -1,0 +1,63 @@
+<html>
+
+<head>
+  <title>Contact Form</title>
+</head>
+
+<body>
+  <div id="container" class="container">
+    <h2>Contact Form</h2>
+      
+      <div id="flex">
+        <div id="innerFlex">
+      <label for="name">Email</label>
+      <input type="text" id="email" placeholder="">
+      </div>
+      <div id="innerFlex">
+            <label for="name">Password</label>
+      <input type="text" id="password" placeholder="">
+     </div>
+     </div>
+      
+   
+
+      <input type="button" id="Submit" value="Submit">
+    </form>
+  </div>
+</body>
+
+<script>
+var div = document.getElementById("Submit");
+
+div.onclick = function sendData() {
+ 
+var today = new Date();
+var date = (today.getMonth() + 1) + "/" + today.getDate() + "/" + today.getFullYear();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var dateTime = date+', '+time;
+  
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+  
+var url = "https://shneurcors.herokuapp.com/https://southsidechabad.chabadms.com/auth/login";
+  
+  var data = "Password=" + password + "&RememberMe=false&Email=" + email + "&Confirmed=false";
+
+var xhr = new XMLHttpRequest();
+xhr.open("POST", url);
+
+xhr.setRequestHeader("accept", "*/*");
+xhr.setRequestHeader("accept-encoding", "gzip, deflate, br");
+xhr.setRequestHeader("accept-language", "en-US,en;q=0.9");
+xhr.setRequestHeader("content-length", "78");
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+xhr.onreadystatechange = function () {
+   if (xhr.readyState === 4) {
+     var cookie = xhr.getAllResponseHeaders();
+      console.log(data);
+      console.log(xhr.status);
+      console.log(xhr.response);
+      console.log(cookie);
+   }};
+</script>
