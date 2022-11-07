@@ -15,6 +15,8 @@
         <div id="listing">
           <div id="title" class="listing-title"></div>
           <div id="city" class="search-address"></div>
+          <div id="personnel" class="search-address"><b>Personnel:</b></div>
+          <div id="services" class="small-tags"></div>
           <div class="buttons-flex">
           <a id="website" class="filledButton" href="">Website</a>
           <a id="donate" class="filledButton" href="">Donate</a>
@@ -27,6 +29,28 @@
 </html>
 
 <style>
+ .small-tags div {
+    background: var(--theme-color-dark);
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: poppins;
+    font-size: 8px;
+    width: fit-content;
+    padding: 2px 4px;
+    margin: 4px;
+    border-radius: 5px;
+}
+.small-tags {
+    display: flex;
+    margin: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#personnel {
+    margin: 13px;
+    text-align: center;
+}
 .listing-title {
     line-height: 1.25;
     text-align: center;
@@ -634,15 +658,8 @@ a:hover, a:visited, a:link, a:active
 </style>
 
 <script>
-const queryString = window.location.search;
-
-const urlParams = new URLSearchParams(queryString);
-
-var id = urlParams.get('id')
-
-
 var searchTerm = document.getElementById("search").value
-fetch(`https://shneurcors.herokuapp.com/https://www.chabad.org/api/v2/chabadorg/centers/` + id)
+fetch(`https://shneurcors.herokuapp.com/https://www.chabad.org/api/v2/chabadorg/centers/` + searchTerm)
             .then(function(response){
                 return response.json()
             })
@@ -653,13 +670,27 @@ fetch(`https://shneurcors.herokuapp.com/https://www.chabad.org/api/v2/chabadorg/
                 document.getElementById("city").innerHTML = data.city;
                 var websiteBtn = document.getElementById("website");
                 websiteBtn.setAttribute("href", "https://" + data.url);
-                var websiteBtn = document.getElementById("donate");
-                websiteBtn.setAttribute("href", "https://" + data.url + "/donate");
+                var donateBtn = document.getElementById("donate");
+                donateBtn.setAttribute("href", data["donate-url"]);
+                data.personnel.forEach((item) => {
+                    var personnel = document.getElementById("personnel");
+                    let title = document.createElement("div");
+                    var name = item["first-name"] + " " + item["last-name"] + " - " + item.position;
+                    var searchTermNew = searchTerm[0].toUpperCase() + searchTerm.substring(1);
+                    title.innerHTML = name;
+                    personnel.appendChild(title);
                 })
-
+                data.services.forEach((item) => {
+                    var services = document.getElementById("services");
+                    let title = document.createElement("div");
+                    var name = item.name;
+                    var searchTermNew = searchTerm[0].toUpperCase() + searchTerm.substring(1);
+                    title.innerHTML = name;
+                    services.appendChild(title);
+                })
+                console.log(displayList)
+            })
             .catch((err) => {
                 console.log(`Error fetching: ${err}`)
             });
-
-
 </script>
