@@ -606,7 +606,7 @@ fetch(`https://shneurcors.herokuapp.com/https://www.chabad.org/api/v2/chabadorg/
                 document.getElementById("myList").innerHTML = "";
                 data.centers.forEach((item) => {
                     let link = document.createElement("a");
-                    var id = item.url;
+                    var id = item.id;
                     link.setAttribute("href", "/chabad/" + id);
                     link.classList.add(id);
                     list.appendChild(link);
