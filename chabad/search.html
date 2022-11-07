@@ -11,7 +11,7 @@
  </div>
 
     <body>
-        <input type="text" id="search" oninput="search()" style="text-transform: capitalize;" value="334256" placeholder="Search"><br>
+        <input type="text" id="search" oninput="search()" style="text-transform: capitalize;" value="" placeholder="Search"><br>
         <div id="myList"></div>
         <script>
 
@@ -607,7 +607,7 @@ fetch(`https://shneurcors.herokuapp.com/https://www.chabad.org/api/v2/chabadorg/
                 data.centers.forEach((item) => {
                     let link = document.createElement("a");
                     var id = item.id;
-                    link.setAttribute("href", "/chabad/" + id);
+                    link.setAttribute("href", "/chabad/center?id=" + id);
                     link.classList.add(id);
                     list.appendChild(link);
                     let title = document.createElement("div");
