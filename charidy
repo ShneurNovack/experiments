@@ -1,0 +1,52 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<div class="charidy-main" id="charidy-main"> <div class="charidy_section"> <div class="charidy_list" id="donations"><div class="charidy_list-item">Loading...</div></div> </div> </div>
+
+<style>
+.dedication {     font-size: 13px;     text-align: center;     line-height: 1.2; } .charidy_list {     display: flex;     justify-content: center;     flex-wrap: wrap;     align-content: center;     align-items: stretch;     margin: auto; } .charidy_list-item {     display: flex;     flex-direction: column;     margin: 18px;     background: #ffe2e2;     align-items: center;     padding: 13px;     width: 185px;     border-radius: 5px;     font-family: poppins;     color: #ad6262;     justify-content: center;     text-align: center; } .charidy_list-amount {     font-weight: 600;     font-size: 20px;     margin: 1px; } .charidy_section {     display: flex;     align-items: center;     flex-direction: column;     width: 100%;     padding: 28px 0px; } .charidy_title {     font-family: poppins;     color: #ad6262;     justify-content: center;     text-align: center;     font-weight: 600;     font-size: 27px; } .other-input {     width: 100% !important;     color: #ad6262;     background-color: #ffe2e254;     border: solid 1px #ad6262;     border-radius: 3px; } .input-flex {     display: flex;     width: 78%;     align-items: center; } .donate-options .charidy_list-item {     background: #fff; } .charidy_section.donate-options {     background: #ffe2e2; }
+</style>
+
+<script>
+
+        console.log('"Charidy BTL" widget is ready')
+     
+fetch(`https://api.charidy.com/api/v1/campaign/15698/donations?limit=100&sortBy=-time`)
+            .then(function(response){
+                return response.json()
+            })
+            .then((data) => {
+                var list = document.getElementById("donations");
+                document.getElementById("donations").innerHTML = "";
+                data.data.forEach((item) => {
+                    let title = document.createElement("div");
+                    var name = item.attributes.name;
+                    title.innerHTML = name;
+                    title.classList.add("charidy_list-item");
+                    list.appendChild(title);
+                    let amount = document.createElement("div");
+                    amount.innerHTML = item.attributes.currency_sign + item.attributes.total;
+                    amount.classList.add("charidy_list-amount");
+                    title.appendChild(amount);
+                    let message = document.createElement("div");
+                    message.innerHTML = item.attributes.dedication;
+                    message.classList.add("dedication");
+                    title.appendChild(message);
+                })
+            });
+fetch(`https://api.charidy.com/api/v1/campaign/19887`)
+  .then(response =>  response.json())
+	.then(res => {
+		const {data} = res;
+		let stuff = data.attributes.title;
+  	let goal = data.attributes.rounds[0].goal;
+		document.querySelector('#charidy_title').innerHTML = stuff; 
+                console.log(displayList)
+            })
+            .catch((err) => {
+                console.log(`Error fetching: ${err}`)
+            });
+
+
+</script>
