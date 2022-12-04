@@ -1,0 +1,234 @@
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="container" class="container">
+    <h2 class="title">AI Title Generator v1.2</h2>
+    <div id="flex">
+      <div id="flex">
+        <h2>Generate a</h2>
+        <select name="type" id="feel">
+          <option value="clickbait">Clickbait</option>
+          <option value="">Generic</option>
+        </select>
+      </div>
+      <div id="flex">
+        <select name="type" id="type">
+          <option value="YouTube">YouTube</option>
+          <option value="news headline">Article</option>
+        </select>
+        <h2>Title about...</h2>
+      </div>
+    </div>
+    <input type="text" id="subject1" placeholder="e.g. Topic 1, Topic 2, etc.">
+
+    <input type="button" id="Submit" value="Generate">
+    </form>
+      <div id="output"></div>
+  </div>
+  <div id="about">Created by Zami Novack with the OpenAI API</div>
+</body>
+
+<style>
+body {
+  font-family: sans-serif;
+}
+select {
+  border: none !important;
+  margin: 0 !important;
+  padding: 0px 5px !important;
+  width: max-content !important;
+  font-size: 1.5em !important;
+  cursor: pointer;
+}
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 15px 5px;
+  resize: vertical;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: poppins;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border: 2px solid #4285f4;
+}
+
+label {
+  margin-bottom: 8px;
+  display: block;
+}
+
+.btn {
+  background-color: #4285f4;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #357ae8;
+}
+
+#flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#flex h2 {
+  margin: 0 5px !important;
+}
+h2.title {
+  font-size: 30px;
+}
+#output {
+  background-color: #f0f0f0;
+  padding: 15px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 1.35;
+  display: none;
+  margin: 10px;
+}
+#and {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+}
+#Submit {
+  width: 150px !important;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#Submit:hover {
+  background: #e0e0e0;
+}
+h2 {
+  font-weight: 400;
+  font-family: poppins;
+}
+@media only screen and (max-width: 550px) {
+h2 {
+    font-weight: 400;
+    font-family: poppins;
+    font-size: 20px;
+}
+input, textarea {
+    font-size: 17px;
+}
+}
+#about {
+    display: flex;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 12px;
+}
+</style>
+
+<script>
+const queryString = window.location.search;
+
+const urlParams = new URLSearchParams(queryString);
+
+var key2 = urlParams.get('key');
+
+document.getElementById("Submit").onclick = function () {
+        function show() {                        document.getElementById("output").style.display = "flex";
+      }
+      show()
+  var sub1 = document.getElementById("subject1").value;
+  var type = document.getElementById("type").value;
+  var feel = document.getElementById("feel").value;
+
+  if (sub1 !== "") {
+    document.getElementById("output").innerHTML = "Loading...";
+    var mdl = "text-davinci-003";
+    var key1 = "KhIHJ6j8gA7E9XbNYse9T";
+    var url = "https://api.openai.com/v1/completions";
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Authorization", "Bearer sk-" + key1 + key2);
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4) {
+        console.log(xhr.status);
+        console.log(xhr.responseText);
+      }
+      var data = JSON.parse(this.response);
+      var output = data.choices[0].text;
+
+      document.getElementById("output").innerHTML = output;
+      checkOutput();
+
+      function checkOutput() {
+        if (typeof output == "undefined" || output == "") {
+          document.getElementById("output").innerHTML = "Error: No output";
+        }
+      }
+      checkOutput();
+    };
+
+    var data = {
+      model: mdl,
+      prompt: "a" + feel + type + "title about" + sub1 + "would be:",
+      max_tokens: 50,
+      temperature: 0.7,
+      top_p: 1,
+      n: 1,
+      stream: false,
+      logprobs: null,
+      stop: "null"
+    };
+
+    xhr.send(JSON.stringify(data));
+  }
+  mInput();
+
+  function mInput() {
+    if (sub1 == "") {
+      document.getElementById("output").innerHTML = "Error: Missing input";
+    }
+  }
+  checkKey();
+
+  function checkKey() {
+    if (key2 == "") {
+      document.getElementById("output").innerHTML = "Error: Missing key";
+    }
+  }
+};
+
+</script>
