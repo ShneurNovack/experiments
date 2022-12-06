@@ -2,20 +2,221 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-<div class="charidy-main" id="charidy-main"> <div class="charidy_section"> <div class="charidy_list" id="donations"><div class="charidy_list-item">Loading...</div></div> </div> </div>
+<div class="main" id="main">
+  <div class="list-item loading">Loading...</div>
+  </div>
+<div class="title" id="title">Teams</div><div class="section">
+<div class="list" id="donations"><div class="list-item">Loading...</div></div>
+</div>
 
 <style>
-.dedication {     font-size: 13px;     text-align: center;     line-height: 1.2; } .charidy_list {     display: flex;     justify-content: center;     flex-wrap: wrap;     align-content: center;     align-items: stretch;     margin: auto; } .charidy_list-item {     display: flex;     flex-direction: column;     margin: 18px;     background: #ffe2e2;     align-items: center;     padding: 13px;     width: 185px;     border-radius: 5px;     font-family: poppins;     color: #ad6262;     justify-content: center;     text-align: center; } .charidy_list-amount {     font-weight: 600;     font-size: 20px;     margin: 1px; } .charidy_section {     display: flex;     align-items: center;     flex-direction: column;     width: 100%;     padding: 28px 0px; } .charidy_title {     font-family: poppins;     color: #ad6262;     justify-content: center;     text-align: center;     font-weight: 600;     font-size: 27px; } .other-input {     width: 100% !important;     color: #ad6262;     background-color: #ffe2e254;     border: solid 1px #ad6262;     border-radius: 3px; } .input-flex {     display: flex;     width: 78%;     align-items: center; } .donate-options .charidy_list-item {     background: #fff; } .charidy_section.donate-options {     background: #ffe2e2; }
-body {
-    background: #fff !important;
+.list-item.loading {
+    width: 185px;
+    display: flex!important;
+}
+#title {
+    position: absolute;
+}
+.list-item.about-text {
+    background: #fff;
+    width: revert;
+    max-width: 800px;
+}
+.fs-partners>div {
+    display: none;
+}
+.container.fs-countdowndonate {
+    display: none;
+}
+.dedication {
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.2;
+}
+.list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: stretch;
+    margin: auto;
+}
+.list-item {
+    display: flex;
+    flex-direction: column;
+    margin: 18px;
+    background: #ffe2e2;
+    align-items: center;
+    padding: 13px;
+    width: 0px;
+    border-radius: 5px;
+    font-family: poppins;
+    color: #ad6262;
+    justify-content: center;
+    text-align: center;
+}
+.list-amount {
+    font-weight: 600;
+    font-size: 20px;
+    margin: 1px;
+}
+.section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+.col-md-4.fs-partners.js-partners {
+    display: none;
+}
+.title {
+    font-family: poppins;
+    color: #ad6262;
+    justify-content: center;
+    text-align: center;
+    font-weight: 600;
+    font-size: 27px;
+}
+.team-progress {
+    background: #b26a6a;
+    border-radius: 13px;
+    height: 10px;
+    width: 100%;
+    padding: 3px;
+    margin: 6px;
+}
+.team-progress-inner {
+    display: block;
+    background: #ffe2e2;
+    width: 0%;
+    height: 100%;
+    border-radius: 9px;
+}
+.list-button {
+    background: #b26a6a;
+    color: #fff;
+    font-size: 13px;
+    text-align: center;
+    line-height: 1.2;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    margin-top: 11px;
+    display: block;
+    transition: 0.5s;
+}
+.other-input {
+    width: 100% !important;
+    color: #ad6262;
+    background-color: #ffe2e254;
+    border: solid 1px #ad6262;
+    border-radius: 3px;
+}
+.input-flex {
+    display: flex;
+    width: 78%;
+    align-items: center;
+}
+.donate-options .list-item {
+    background: #fff;
+}
+.section.donate-options {
+    background: #ffe2e2;
+}
+.main {
+    width: 0%;
+    display: flex;
+    height: 100vh;
+    position: absolute;
+    z-index: 300;
+    top: 0px;
+    left: 0px;
+    background: #fff1f1;
+    justify-content: center;
+    flex-direction: column;
+    animation-name: load;
+    animation-duration: 8.5s;
+    overflow: hidden;
+    align-items: center;
+}
+@media only screen and (min-width: 660px) {
+.list-item {
+    scale: 3;
+}
+}
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 4s;
+}
+
+@keyframes fade {
+  0% {
+    width: 0px;
+    opacity: 0;
+  }
+  50% {
+    width: 200px;
+    opacity: 1;
+  }
+  80% {
+    width: 200px;
+    opacity: 1;
+  }
+  100% {
+    width: 0px;
+    opacity: 0;
+  }
+  
+}
+@keyframes load {
+  0% {
+    width: 100%;
+  }
+  99.9% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+  
+}
+.dedication {
+    width: 170px;
+    text-align: center;
+}
+p {
     margin: 0 !important;
+    width: 170px;
+}
+.list-item {
+    overflow: hidden;
+}
+body {
+   height: 100%;
+   overflow: hidden;
 }
 </style>
 
 <script>
+let slideIndex = 0;
+showSlides();
 
-        console.log('"Charidy BTL" widget is ready')
-     
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("list-item");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "flex";
+  setTimeout(showSlides, 4000); // Change image every 2 seconds
+}
+
+window.onload = function donors() {
+
 fetch(`https://api.charidy.com/api/v1/campaign/15698/donations?limit=100&sortBy=-time`)
             .then(function(response){
                 return response.json()
@@ -26,12 +227,13 @@ fetch(`https://api.charidy.com/api/v1/campaign/15698/donations?limit=100&sortBy=
                 data.data.forEach((item) => {
                     let title = document.createElement("div");
                     var name = item.attributes.name;
-                    title.innerHTML = name;
-                    title.classList.add("charidy_list-item");
+                    title.innerHTML = "<P>" + name + "</P>";
+                    title.classList.add("list-item");
+                    title.classList.add("fade");
                     list.appendChild(title);
                     let amount = document.createElement("div");
                     amount.innerHTML = item.attributes.currency_sign + item.attributes.total;
-                    amount.classList.add("charidy_list-amount");
+                    amount.classList.add("list-amount");
                     title.appendChild(amount);
                     let message = document.createElement("div");
                     message.innerHTML = item.attributes.dedication;
@@ -45,12 +247,14 @@ fetch(`https://api.charidy.com/api/v1/campaign/19887`)
 		const {data} = res;
 		let stuff = data.attributes.title;
   	let goal = data.attributes.rounds[0].goal;
-		document.querySelector('#charidy_title').innerHTML = stuff; 
-                console.log(displayList)
+		document.querySelector('#title').innerHTML = stuff; 
+  console.log(displayList)
             })
             .catch((err) => {
                 console.log(`Error fetching: ${err}`)
             });
+}
+
 
 
 </script>
