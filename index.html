@@ -6,6 +6,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <style>
+.button.stkg:before {
+    background: url(https://github.com/ShneurNovack/Hosting/blob/gh-pages/Screenshot%202022-12-07%20212613.png?raw=true);
+}
 @media only screen and (max-width: 930px) {
 h1 {
     font-size: 10vw !important;
@@ -35,8 +38,19 @@ div#main {
 .button {
     width: 80%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     transition-duration: 0.2s;
+    flex-direction: column;
+}
+.button:before {
+    display: flex;
+    height: 100px !important;
+    width: 100%;
+    background: #ffffff78;
+    margin-bottom: 10px;
+    background-size: cover;
+    background-position: center;
+    content: "";
 }
 .button {
     font-family: 'Poppins', sans-serif;
@@ -306,7 +320,7 @@ body, .bgImage {
 <div id="main">
 	<h1>Experiments</h1>
 	<div id="theStuff">
-	<a href="/strangergenerator.html" class="button">Stranger Things Knockoff Generator</a>
+	<a href="/strangergenerator.html" class="button stkg">Stranger Things Knockoff Generator</a>
 	<a href="/ai" class="button">AI Stuff</a>
 	</div>
   </div>
